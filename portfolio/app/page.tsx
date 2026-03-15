@@ -21,8 +21,8 @@ export default function Home() {
 
       <footer className="border-t border-white/10 bg-black/50 py-10">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 text-sm text-white/60 md:flex-row md:px-8">
-          <p>© {new Date().getFullYear()} Jordan Dev. Built with Next.js, Tailwind CSS, and Framer Motion.</p>
-          <p className="text-xs text-white/40">Designed for a premium, modern developer portfolio experience.</p>
+          <p>© {new Date().getFullYear()} Emir Kolasinac. Izgrađeno s Next.js, Tailwind CSS i Framer Motion.</p>
+          <p className="text-xs text-white/40">Dizajnirano za premium, moderno developersko portfolio iskustvo.</p>
         </div>
       </footer>
     </div>

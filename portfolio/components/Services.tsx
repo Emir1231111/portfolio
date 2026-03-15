@@ -6,22 +6,22 @@ import { CodeIcon, DesignIcon, RocketIcon, SpeedIcon } from "./icons";
 const services = [
   {
     title: "Fullstack Web Development",
-    description: "Building robust, scalable applications with Next.js, TypeScript, and modern backends.",
+    description: "Izgradnja robusnih, skalabilnih aplikacija s Next.js, TypeScript i modernim backendima.",
     icon: CodeIcon,
   },
   {
-    title: "UI/UX Design",
-    description: "Designing polished interfaces with a focus on accessibility and intuitive interactions.",
+    title: "UI/UX Dizajn",
+    description: "Dizajniranje dotjeranih sučelja s fokusom na pristupačnost i intuitivne interakcije.",
     icon: DesignIcon,
   },
   {
-    title: "Landing Page Development",
-    description: "Conversion-focused landing pages with pixel-perfect layouts and fast load times.",
+    title: "Razvoj Landing Stranica",
+    description: "Landing stranice fokusirane na konverziju s pixel-perfect layoutima i brzim vremenom učitavanja.",
     icon: RocketIcon,
   },
   {
-    title: "Website Optimization",
-    description: "Performance tuning, SEO improvements, and responsive experiences for every device.",
+    title: "Optimizacija Web Stranica",
+    description: "Podešavanje performansi, SEO poboljšanja i responzivna iskustva za svaki uređaj.",
     icon: SpeedIcon,
   },
 ];
@@ -35,24 +35,49 @@ export function Services() {
       </div>
 
       <div className="relative mx-auto max-w-6xl px-4 text-white md:px-8">
-        <div className="mb-12 max-w-xl">
-          <p className="text-sm font-semibold uppercase tracking-wide text-white/60">What I do</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Services I offer</h2>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6 }}
+          className="mb-12 max-w-xl"
+        >
+          <p className="text-sm font-semibold uppercase tracking-wide text-white/60">Što radim</p>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl"
+          >Usluge koje nudim</motion.h2>
           <p className="mt-4 text-lg leading-relaxed text-white/70">
-            From rapid prototyping to production-ready apps, I deliver full-cycle solutions with the polish you expect.
+            Od brzog prototipiranja do produkcijskih aplikacija, isporučujem rješenja punog ciklusa s dotjeranošću koju očekuješ.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.1
+              }
+            }
+          }}
+          className="grid gap-6 md:grid-cols-2 lg:grid-cols-4"
+        >
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
               <motion.article
+                variants={{
+                  hidden: { opacity: 0, y: 30, scale: 0.95 },
+                  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6 } }
+                }}
                 key={service.title}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.4 }}
-                transition={{ duration: 0.6, delay: index * 0.08 }}
                 className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_20px_60px_rgba(0,0,0,0.4)] backdrop-blur"
               >
                 <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-500 via-indigo-500 to-cyan-500 text-white shadow-lg shadow-purple-500/30 transition-transform group-hover:-translate-y-1">
@@ -66,7 +91,7 @@ export function Services() {
               </motion.article>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -13,23 +13,23 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Jordan Dev — Fullstack Web Developer",
-  description: "A modern, premium portfolio showcasing fullstack web development, UI/UX design, and product-focused engineering.",
+  title: "Emir Kolasinac — Fullstack Web Developer",
+  description: "Moderan, premium portfolio koje prikazuje fullstack web razvoj, UI/UX dizajn i product-focused engineering.",
   icons: {
     icon: "/favicon.ico",
   },
   openGraph: {
-    title: "Jordan Dev — Fullstack Web Developer",
+    title: "Emir Kolasinac — Fullstack Web Developer",
     description:
-      "A modern portfolio showcasing fullstack web development, UI/UX design, and product-focused engineering.",
+      "Moderan portfolio koje prikazuje fullstack web razvoj, UI/UX dizajn i product-focused engineering.",
     url: "https://example.com",
-    siteName: "Jordan Dev Portfolio",
+    siteName: "Emir Kolasinac Portfolio",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Jordan Dev Portfolio",
+        alt: "Emir Kolasinac Portfolio",
       },
     ],
     locale: "en_US",
@@ -43,7 +43,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="bs" className="scroll-smooth">
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-black text-white antialiased`}
       >

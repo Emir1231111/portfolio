@@ -5,12 +5,12 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
-  { label: "Home", href: "#home" },
-  { label: "Projects", href: "#projects" },
-  { label: "Services", href: "#services" },
-  { label: "Tech Stack", href: "#tech" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Početna", href: "#home" },
+  { label: "Projekti", href: "#projects" },
+  { label: "Usluge", href: "#services" },
+  { label: "Tehnologije", href: "#tech" },
+  { label: "O meni", href: "#about" },
+  { label: "Kontakt", href: "#contact" },
 ];
 
 export function Navbar() {
@@ -54,9 +54,9 @@ export function Navbar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-8">
         <Link href="#home" className="group flex items-center gap-2 font-semibold text-white">
           <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500 via-indigo-500 to-cyan-500 text-sm font-bold text-black shadow-lg shadow-purple-500/20">
-            JD
+            EK
           </span>
-          <span className="hidden text-lg tracking-wide sm:inline">Jordan Dev</span>
+          <span className="hidden text-lg tracking-wide sm:inline">Emir Kolasinac EK</span>
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">

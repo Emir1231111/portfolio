@@ -7,7 +7,7 @@ import { ExternalIcon, GithubIcon } from "./icons";
 const projects = [
   {
     title: "SaaS Dashboard UI",
-    description: "A responsive admin dashboard with charts, tables, and real-time updates.",
+    description: "Responzivni admin dashboard s grafikonima, tabelama i ažuriranjima u realnom vremenu.",
     technologies: ["Next.js", "TypeScript", "Tailwind"],
     image: "/project-1.svg",
     demo: "#",
@@ -15,15 +15,15 @@ const projects = [
   },
   {
     title: "Marketing Landing Page",
-    description: "High-converting landing page with animated sections and smooth scroll interactions.",
+    description: "Landing stranica s visokom konverzijom, animiranim sekcijama i glatkim scroll interakcijama.",
     technologies: ["React", "Framer Motion", "Tailwind"],
     image: "/project-2.svg",
     demo: "#",
     github: "#",
   },
   {
-    title: "E-commerce Platform",
-    description: "Fast checkout flows, product filtering, and scalable backend architecture.",
+    title: "E-commerce Platforma",
+    description: "Brzi checkout tokovi, filtriranje proizvoda i skalabilna backend arhitektura.",
     technologies: ["Next.js", "Node.js", "MongoDB"],
     image: "/project-3.svg",
     demo: "#",
@@ -40,22 +40,47 @@ export function Projects() {
       </div>
 
       <div className="relative mx-auto max-w-6xl px-4 text-white md:px-8">
-        <div className="mb-10 max-w-xl">
-          <p className="text-sm font-semibold uppercase tracking-wide text-white/60">Featured Work</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Projects I&apos;ve built</h2>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6 }}
+          className="mb-10 max-w-xl"
+        >
+          <p className="text-sm font-semibold uppercase tracking-wide text-white/60">Istaknuti Radovi</p>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl"
+          >Projekti koje sam izgradio</motion.h2>
           <p className="mt-4 text-lg leading-relaxed text-white/70">
-            A selection of projects demonstrating modern design systems, responsive UI patterns, and performant code.
+            Odabir projekata koji demonstriraju moderne dizajn sisteme, responzivne UI obrasce i performantni kod.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid gap-8 md:grid-cols-2">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.15
+              }
+            }
+          }}
+          className="grid gap-8 md:grid-cols-2"
+        >
           {projects.map((project, index) => (
             <motion.article
+              variants={{
+                hidden: { opacity: 0, y: 40, scale: 0.95 },
+                visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7 } }
+              }}
               key={project.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ duration: 0.7, delay: index * 0.1 }}
               className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.45)] backdrop-blur"
             >
               <div className="relative overflow-hidden">
@@ -106,7 +131,7 @@ export function Projects() {
               </div>
             </motion.article>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -27,27 +27,52 @@ export function Contact() {
       </div>
 
       <div className="relative mx-auto max-w-6xl px-4 text-white md:px-8">
-        <div className="mb-10 max-w-xl">
-          <p className="text-sm font-semibold uppercase tracking-wide text-white/60">Get in touch</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Let&apos;s build something great together</h2>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6 }}
+          className="mb-10 max-w-xl"
+        >
+          <p className="text-sm font-semibold uppercase tracking-wide text-white/60">Stupi u kontakt</p>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl"
+          >Hajde da izgradimo nešto veliko zajedno</motion.h2>
           <p className="mt-4 text-lg leading-relaxed text-white/70">
-            Share your idea or project and I&apos;ll get back within 1-2 business days. Looking forward to hearing from you.
+            Podijeli svoju ideju ili projekt i javit ću ti se unutar 1-2 radna dana. Radujem se što ću čuti od tebe.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid gap-10 lg:grid-cols-2">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.15
+              }
+            }
+          }}
+          className="grid gap-10 lg:grid-cols-2"
+        >
           <motion.form
+            variants={{
+              hidden: { opacity: 0, x: -30 },
+              visible: { opacity: 1, x: 0, transition: { duration: 0.6 } }
+            }}
             onSubmit={handleSubmit}
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.7 }}
             className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_20px_60px_rgba(0,0,0,0.45)] backdrop-blur"
           >
             <div className="grid gap-6">
               <div>
                 <label className="text-sm font-semibold text-white/80" htmlFor="name">
-                  Name
+                  Ime
                 </label>
                 <input
                   id="name"
@@ -56,7 +81,7 @@ export function Contact() {
                   onChange={handleChange}
                   required
                   className="mt-2 w-full rounded-2xl border border-white/15 bg-black/30 px-4 py-3 text-white placeholder:text-white/40 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-400/30"
-                  placeholder="Your name"
+                  placeholder="Tvoje ime"
                 />
               </div>
               <div>
@@ -71,12 +96,12 @@ export function Contact() {
                   onChange={handleChange}
                   required
                   className="mt-2 w-full rounded-2xl border border-white/15 bg-black/30 px-4 py-3 text-white placeholder:text-white/40 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-400/30"
-                  placeholder="you@example.com"
+                  placeholder="ti@primjer.com"
                 />
               </div>
               <div>
                 <label className="text-sm font-semibold text-white/80" htmlFor="message">
-                  Message
+                  Poruka
                 </label>
                 <textarea
                   id="message"
@@ -86,7 +111,7 @@ export function Contact() {
                   required
                   rows={5}
                   className="mt-2 w-full resize-none rounded-2xl border border-white/15 bg-black/30 px-4 py-3 text-white placeholder:text-white/40 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-400/30"
-                  placeholder="Tell me about your project..."
+                  placeholder="Reci mi nešto o svom projektu..."
                 />
               </div>
 
@@ -94,28 +119,28 @@ export function Contact() {
                 type="submit"
                 className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-purple-500 via-indigo-500 to-cyan-500 px-6 py-3 text-sm font-semibold text-black shadow-lg shadow-purple-500/30 transition hover:brightness-110"
               >
-                Send message
+                Pošalji poruku
               </button>
 
               {submitted ? (
                 <div className="rounded-2xl border border-white/10 bg-white/10 p-4 text-sm text-white/80">
-                  Thanks for reaching out! I&apos;ll respond as soon as possible.
+                  Hvala na javljanju! Odgovorit ću ti što je prije moguće.
                 </div>
               ) : null}
             </div>
           </motion.form>
 
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.7 }}
+            variants={{
+              hidden: { opacity: 0, x: 30 },
+              visible: { opacity: 1, x: 0, transition: { duration: 0.6 } }
+            }}
             className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_20px_60px_rgba(0,0,0,0.45)] backdrop-blur"
           >
             <div className="flex flex-col gap-6">
               <div>
-                <h3 className="text-xl font-semibold text-white">Connect with me</h3>
-                <p className="mt-3 text-white/70">Feel free to reach out via email or follow along on my socials for the latest updates.</p>
+                <h3 className="text-xl font-semibold text-white">Poveži se sa mnom</h3>
+                <p className="mt-3 text-white/70">Slobodno mi se javi putem emaila ili prati moje društvene mreže za najnovija ažuriranja.</p>
               </div>
 
               <div className="space-y-4">
@@ -155,7 +180,7 @@ export function Contact() {
               </div>
             </div>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -11,48 +11,79 @@ export function About() {
       </div>
 
       <div className="relative mx-auto max-w-6xl px-4 text-white md:px-8">
-        <div className="mb-10 max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-wide text-white/60">About me</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Crafting digital experiences with code</h2>
-          <p className="mt-4 text-lg leading-relaxed text-white/70">
-            I'm a fullstack developer who loves connecting design and engineering. With over 6 years of experience building web products, I specialize in creating scalable, user-centered applications with a keen eye for polished interactions.
-          </p>
-        </div>
-
-        <motion.div
+        <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.8 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6 }}
+          className="mb-10 max-w-2xl"
+        >
+          <p className="text-sm font-semibold uppercase tracking-wide text-white/60">O meni</p>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl"
+          >Stvaranje digitalnih iskustava kodom</motion.h2>
+          <p className="mt-4 text-lg leading-relaxed text-white/70">
+            Ja sam fullstack developer koji voli povezivati dizajn i inženjering. Sa više od 6 godina iskustva u izgradnji web proizvoda, specijaliziran sam za stvaranje skalabilnih, korisnički orijentiranih aplikacija s okom na dotjerane interakcije.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.15
+              }
+            }
+          }}
           className="grid gap-8 md:grid-cols-2"
         >
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_20px_60px_rgba(0,0,0,0.45)] backdrop-blur">
-            <h3 className="text-xl font-semibold text-white">What I specialize in</h3>
+          <motion.div 
+            variants={{
+              hidden: { opacity: 0, y: 30, scale: 0.95 },
+              visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6 } }
+            }}
+            className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_20px_60px_rgba(0,0,0,0.45)] backdrop-blur"
+          >
+            <h3 className="text-xl font-semibold text-white">U čemu sam specijaliziran</h3>
             <ul className="mt-6 space-y-4 text-white/70">
               <li>
-                <span className="font-semibold text-white">End-to-end product builds</span> — from design systems to API integrations.
+                <span className="font-semibold text-white">End-to-end izgradnja proizvoda</span> — od dizajn sistema do API integracija.
               </li>
               <li>
-                <span className="font-semibold text-white">Responsive interfaces</span> — polished layouts that adapt to every device.
+                <span className="font-semibold text-white">Responzivna sučelja</span> — dotjerani layouti koji se prilagođavaju svakom uređaju.
               </li>
               <li>
-                <span className="font-semibold text-white">Performance &amp; accessibility</span> — fast load times and inclusive experiences.
+                <span className="font-semibold text-white">Performanse &amp; pristupačnost</span> — brzo učitavanje i inkluzivna iskustva.
               </li>
               <li>
-                <span className="font-semibold text-white">Collaborative development</span> — version control, code reviews, and clear documentation.
+                <span className="font-semibold text-white">Kolaborativni razvoj</span> — kontrola verzija, code review i jasna dokumentacija.
               </li>
             </ul>
-          </div>
+          </motion.div>
 
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_20px_60px_rgba(0,0,0,0.45)] backdrop-blur">
-            <h3 className="text-xl font-semibold text-white">My approach</h3>
+          <motion.div 
+            variants={{
+              hidden: { opacity: 0, y: 30, scale: 0.95 },
+              visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, delay: 0.1 } }
+            }}
+            className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-[0_20px_60px_rgba(0,0,0,0.45)] backdrop-blur"
+          >
+            <h3 className="text-xl font-semibold text-white">Moj pristup</h3>
             <p className="mt-6 text-white/70">
-              I combine modern tooling with a product mindset. Each project starts with user needs, moves through prototypes and iterative development, and ships with maintainable, documented code.
+              Kombiniram moderne alate s product mindsetom. Svaki projekt započinje s korisničkim potrebama, prolazi kroz prototipe i iterativni razvoj, i završava s održivim, dokumentiranim kodom.
             </p>
             <p className="mt-4 text-white/70">
-              Whether it's a startup launch or revamping an existing platform, I focus on building reliable solutions that scale and delight users.
+              Bilo da je riječ o pokretanju startupa ili osvježavanju postojeće platforme, fokusiram se na izgradnju pouzdanih rješenja koja skaliraju i oduševljavaju korisnike.
             </p>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

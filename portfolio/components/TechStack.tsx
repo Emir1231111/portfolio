@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const stack = [
   {
     name: "React",
-    description: "Component-driven UI",
+    description: "UI baziran na komponentama",
     color: "#61dafb",
     svg: (
       <svg viewBox="0 0 128 128" className="h-10 w-10" aria-hidden="true">
@@ -33,7 +33,7 @@ const stack = [
   },
   {
     name: "TypeScript",
-    description: "Typed JavaScript",
+    description: "Tipizirani JavaScript",
     color: "#3178c6",
     svg: (
       <svg viewBox="0 0 128 128" className="h-10 w-10" aria-hidden="true">
@@ -47,7 +47,7 @@ const stack = [
   },
   {
     name: "Tailwind CSS",
-    description: "Utility-first styling",
+    description: "Utility-first stiliziranje",
     color: "#38bdf8",
     svg: (
       <svg viewBox="0 0 128 128" className="h-10 w-10" aria-hidden="true">
@@ -64,7 +64,7 @@ const stack = [
   },
   {
     name: "Node.js",
-    description: "Server-side JavaScript",
+    description: "JavaScript na serveru",
     color: "#83cd29",
     svg: (
       <svg viewBox="0 0 128 128" className="h-10 w-10" aria-hidden="true">
@@ -77,7 +77,7 @@ const stack = [
   },
   {
     name: "MongoDB",
-    description: "Flexible document database",
+    description: "Fleksibilna dokument baza",
     color: "#47a248",
     svg: (
       <svg viewBox="0 0 128 128" className="h-10 w-10" aria-hidden="true">
@@ -103,22 +103,47 @@ export function TechStack() {
       </div>
 
       <div className="relative mx-auto max-w-6xl px-4 text-white md:px-8">
-        <div className="mb-10 max-w-xl">
-          <p className="text-sm font-semibold uppercase tracking-wide text-white/60">Tech Stack</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Tools & technologies</h2>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6 }}
+          className="mb-10 max-w-xl"
+        >
+          <p className="text-sm font-semibold uppercase tracking-wide text-white/60">Tehnologije</p>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl"
+          >Alati & tehnologije</motion.h2>
           <p className="mt-4 text-lg leading-relaxed text-white/70">
-            Modern toolchain focused on speed, scalability, and developer experience.
+            Moderni set alata fokusiran na brzinu, skalabilnost i iskustvo programera.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.08
+              }
+            }
+          }}
+          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+        >
           {stack.map((tech, index) => (
             <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 30, scale: 0.95 },
+                visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6 } }
+              }}
               key={tech.name}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ duration: 0.7, delay: index * 0.07 }}
               className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 shadow-[0_20px_60px_rgba(0,0,0,0.35)] backdrop-blur"
             >
               <div className="flex items-start gap-4">
@@ -135,7 +160,7 @@ export function TechStack() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
